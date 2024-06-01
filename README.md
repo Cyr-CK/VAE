@@ -144,4 +144,4 @@ Extend VAE application to other data types like :
 ## References
 - Blei, David M. “Build, Compute, Critique, Repeat: Data Analysis with Latent Variable Models.” Annual Review of Statistics and Its Application, vol. 1, no. 1, Jan. 2014, pp. 203–32, https://doi.org/10.1146/annurev-statistics-022513-115657. ‌
 - Blei, David M., et al. “Variational Inference: A Review for Statisticians.” Journal of the American Statistical Association, vol. 112, no. 518, Feb. 2017, pp. 859–77, https://doi.org/10.1080/01621459.2017.1285773. ‌
-- Kingma, Diederik, and Max Welling. Auto-Encoding Variational Bayes. 2014, arxiv.org/pdf/1312.6114. ‌
+- Kingma, Diederik, and Max Welling. Auto-Encoding Variational Bayes. 2014, [arxiv.org/pdf/1312.6114](https://arxiv.org/pdf/1312.6114). ‌
