@@ -1,0 +1,1 @@
+Mettre ici les scripts de code et fonctions faites-maison qui seront exécutés dans les notebooks centraux. Bien découper en sous-dossiers si le projet peut se diviser en sous-étapes (prétraitement, analyse, modélisation, etc.)

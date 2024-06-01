@@ -1,1 +1,1 @@
-# VAE
+Mettre ici une présentation générale du projet
