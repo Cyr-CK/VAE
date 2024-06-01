@@ -66,9 +66,9 @@ model = VAE(latent_dim=latent_dim)
 optimizer = optax.adamw(learning_rate=1e-4)
 
 train_step, train, params, opt_state = generate_train_step(model_key, model, optimizer, 
-											batch_size=batch_size, 
-											num_classes=num_classes, 
-											dim_params=dim_params)
+								batch_size=batch_size, 
+								num_classes=num_classes, 
+								dim_params=dim_params)
 ```
 
 Model training
@@ -96,10 +96,10 @@ test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True, drop
 Evaluating the average loss over the test set of interest. That score will be used as a threshold accoding to which images with higher loss will be considered as anomalies
 ```python
 total_loss, total_mse, total_kl, loss_distrib = model.evaluate(key, params,
-													n_classes=num_classes,
-													data_loader=test_loader,
-													batch_size=batch_size,
-													get_loss_distrib=True)
+								n_classes=num_classes,
+								data_loader=test_loader,
+								batch_size=batch_size,
+								get_loss_distrib=True)
 ```
 
 Anomaly detection task
@@ -111,9 +111,9 @@ img = prepare_test_set(test_loader.dataset, class_of_ref, mixed_classes=True)
 
 thresh = jnp.quantlie(jnp.asarray(loss_distrib), quantile)
 anomalies = model.det_anom(key, params, img, 
-						   n_classes=num_classes, 
-						   tested_class = class_of_ref,
-						   threshold=thresh)
+			   n_classes=num_classes, 
+			   tested_class = class_of_ref,
+			   threshold=thresh)
 ```
 
 
