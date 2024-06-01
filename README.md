@@ -133,7 +133,9 @@ print(classification_report(y_true, anomalies["estAnomalie"]))
 ## Future works
 Extend tasks to :
 - Image denoising
-- Image colorization  
+- Image colorization
+
+
 Extend VAE application to other data types like :
 - Quantitative data
 - Qualitative data
