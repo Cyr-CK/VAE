@@ -2,7 +2,7 @@
 ---
 ## Overview
 The purpose of this project is to build an open-source Python package of Variational Inference (VI) based methods with a JAX backend.  
-As a 4th year student, my contribution was to build a simple Variational Auto-Encoder (VAE) able to carry out differents tasks over the famous MNIST dataset (as well as the FashionMNIST dataset) :
+As a 4th year student, my contribution was to build a simple Variational Auto-Encoder (VAE) able to carry out different tasks over the famous MNIST dataset (as well as the FashionMNIST dataset) :
 - Data generation
 - Anomaly detection
 
