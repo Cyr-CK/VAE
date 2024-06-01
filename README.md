@@ -58,7 +58,7 @@ train_dataset = MNIST('../data', train = True, transform=T.ToTensor(), download=
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
 ```
 
-Model initialization
+Model and optimizer initialization and preparation to training
 ```python
 key, model_key = jax.random.split(key)
 
@@ -67,7 +67,7 @@ optimizer = optax.adamw(learning_rate=1e-4)
 
 train_step, train, params, opt_state = generate_train_step(model_key, model, optimizer, 
 								batch_size=batch_size, 
-								num_classes=num_classes, 
+								n_classes=num_classes, 
 								dim_params=dim_params)
 ```
 
@@ -83,7 +83,7 @@ params, opt_state = train(key, params, freq=500, epochs=10,
 ### Data generation
 Generation of 4x4 images of class 0. In other words, the following code will generate 16 images of the digit img_class=0
 ```python
-model.img_gen(key, params, num_classes=num_classes, img_class=0, h=4, w=4)
+model.img_gen(key, params, n_classes=num_classes, img_class=0, h=4, w=4)
 ```
 
 ### Anomaly detection
@@ -93,7 +93,7 @@ test_dataset = MNIST('../data', train = False, transform=T.ToTensor(), download=
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
 ```
 
-Evaluating the average loss over the test set of interest. That score will be used as a threshold accoding to which images with higher loss will be considered as anomalies
+Evaluating the loss distribution over the test set of interest.
 ```python
 total_loss, total_mse, total_kl, loss_distrib = model.evaluate(key, params,
 								n_classes=num_classes,
@@ -102,7 +102,7 @@ total_loss, total_mse, total_kl, loss_distrib = model.evaluate(key, params,
 								get_loss_distrib=True)
 ```
 
-Anomaly detection task
+Anomaly detection task. A loss threshold given a quantile is obtained over the loss distribution. Images predicted with a loss score higher than this threshold will be considered as anomalies
 ```python
 class_of_ref = 0
 quantile = 0.99 # by default, should be fine-tuned with cross validation methods
